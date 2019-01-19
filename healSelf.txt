@@ -1,0 +1,5 @@
+if poisoned
+  cast 'arch cure' 'self'
+else
+  cast 'greater heal' 'self'
+endif

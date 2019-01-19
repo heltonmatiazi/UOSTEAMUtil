@@ -1,0 +1,7 @@
+@Getenemy 'gray''enemy' 'closest''red''criminal''murderer'
+if @findobject 'enemy'
+  attack 'enemy'
+  msg 'all guard me'
+endif
+@clearusequeue
+@cancelautotarget

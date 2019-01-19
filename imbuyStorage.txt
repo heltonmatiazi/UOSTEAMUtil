@@ -1,0 +1,48 @@
+// moves all matching ingredients to a container called imbuyStore
+
+
+unsetalias 'imbuyStore'
+// !! Create Sort lists
+removelist 'ingreds'
+if not listexists 'ingreds'
+  createlist 'ingreds'
+  //Gems
+  pushlist 'ingreds' 0xf16 // Amethyst
+  pushlist 'ingreds' 0xf15 // Citrine
+  pushlist 'ingreds' 0xf19 // Sapphire
+  pushlist 'ingreds' 0xf25 // Amber
+  pushlist 'ingreds' 0xf21 // Star Sapphire
+  pushlist 'ingreds' 0xf10 // Emerald
+  pushlist 'ingreds' 0xf26 // Diamond
+  pushlist 'ingreds' 0xf2d // Tourmaline
+  pushlist 'ingreds' 0xf13 // Ruby
+  pushlist 'ingreds' 0x5722 //silverfang venom
+  pushlist 'ingreds' 0x5744 //silver snake skin
+  pushlist 'ingreds' 0x5731 // undying flesh
+  pushlist 'ingreds' 0x571c // essence of precision
+  pushlist 'ingreds' 0x572d // lava crust
+  pushlist 'ingreds' 0x5721 // daemon claw
+  pushlist 'ingreds' 0x5743 // chaga mushroom
+  pushlist 'ingreds' 0x3198 //blue diamond
+  pushlist 'ingreds' 0x3193 //turquoise
+endif
+if not findalias 'imbuyStore'
+  promptalias 'imbuyStore'
+endif
+clearignorelist
+// !! Start sorting !!
+while @findtype 0xe76 'any' 'backpack'
+  setalias 'current_bag' 'found'
+  useobject 'current_bag'
+  pause 600
+  ignoreobject 'current_bag'
+  for 0 to 'ingreds'
+    while @findtype 'ingreds[]' 'current_bag'
+      moveitem 'found' 'imbuyStore'
+      pause 600
+    endwhile
+  endfor
+  pause 600
+endwhile
+clearignorelist
+headmsg 'Done Sorting' '89'

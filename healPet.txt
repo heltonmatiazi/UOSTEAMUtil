@@ -1,0 +1,29 @@
+// heals pet until full 
+promptalias 'pet'
+if not inrange 'pet' 1
+  headmsg 'Get closer.'
+  stop
+endif
+if diffhits 'pet' <= 0
+  headmsg 'Pet full health.'
+  stop
+endif
+if @findtype 0xe21
+  @useobject 'found'
+else
+  headmsg 'out of bandages'
+  stop
+endif
+clearjournal
+waitfortarget 1000
+target! 'pet'
+if injournal 'not damaged' 'system'
+  headmsg 'not hurt'
+  stop
+endif
+clearjournal
+while not @injournal 'you finish applying' 'system'
+  //headmsg 'pausing'
+  pause 50
+endwhile
+replay

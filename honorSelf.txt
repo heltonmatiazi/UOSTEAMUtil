@@ -1,0 +1,2 @@
+virtue 'honor'
+target 'self'

@@ -1,0 +1,23 @@
+// retrieves all rings and bracelets from a container (ringSrc) and puts them on (ringDest)
+clearignorelist
+promptalias 'ringSrc'
+promptalias 'ringDest'
+pause 1000
+useobject 'ringSrc'
+pause 1000
+removelist 'jewelTypes'
+createlist 'jewelTypes'
+//rings and bracelets
+@pushlist 'jewelTypes' 0x1f06
+@pushlist 'jewelTypes' 0x1086
+@pushlist 'jewelTypes' 0x108a
+@pushlist 'jewelTypes' 0x1f09
+// !!*** End of Data Init ***!!
+for 0 to 'jewelTypes'
+  while @findtype jewelTypes[] 'any' 'ringSrc'
+    @moveitem 'found' 'ringDest'
+    pause 1000
+    ignoreobject 'found'
+  endwhile
+endfor
+clearignorelist

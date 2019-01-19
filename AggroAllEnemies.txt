@@ -1,0 +1,8 @@
+//-- Aggro all enemies
+@Getenemy 'gray''enemy' 'closest''red''criminal''murderer'
+if @findobject 'enemy'
+  attack 'enemy'
+endif
+ignoreobject 'enemy'
+@clearusequeue
+@cancelautotarget

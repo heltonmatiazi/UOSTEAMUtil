@@ -1,0 +1,7 @@
+//autotarget spell 
+// you can change the spell on the 'cast' line to any other spell you like
+cast 'fireball'
+@Getenemy 'gray''enemy' 'closest''red'
+if @findobject 'enemy'
+  target 'enemy'
+endif
